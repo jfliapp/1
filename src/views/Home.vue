@@ -199,8 +199,9 @@ $color: #707070;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: 100% 100%;
   background: url('../assets/img/home-1.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
 
   .title {
     display: flex;

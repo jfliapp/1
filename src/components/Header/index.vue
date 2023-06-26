@@ -11,7 +11,7 @@
           <template #title>
             {{ item.title }}
           </template>
-          <el-menu-item v-for="(li, k) in  item.arr" :key="k" :index="`${i + 10}-${k}`">
+          <el-menu-item v-for="(li, k) in  item.arr" :key="k" :index="`${i + 10}-${k}`" @click="push({ name: li.name })">
             {{ li.title }}
           </el-menu-item>
         </el-sub-menu>
@@ -39,14 +39,18 @@
   </header>
 </template>
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import { ref } from 'vue'
 const menu = [
   {
     title: '關於我們',
     arr: [
-      { title: '合作夥伴', name: 'partners' },
-      { title: '公司概况', name: 'situation' },
-      { title: '法律檔', name: 'legalDocument' },
+      // { title: '合作夥伴', name: 'partners' },
+      // { title: '公司概况', name: 'situation' },
+      // { title: '法律檔', name: 'legalDocument' },
+      { title: '合作夥伴', name: 'About' },
+      { title: '公司概况', name: 'AboutService' },
+      { title: '法律檔', name: 'AboutAptitude' },
       { title: '資質', name: 'qualification' }
     ]
   },
@@ -73,6 +77,7 @@ const menu = [
     ]
   },
 ]
+const { push } = useRouter()
 const langImg = ref('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSLlm77lsYJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIwIiB5PSIwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlPi5zdDJ7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggZD0iTS40IDMzLjZoMTk5LjJ2MTMyLjdILjRWMzMuNnoiIGZpbGw9InJlZCIvPjxwYXRoIGQ9Ik0uNCAzMy42SDEwMFYxMDBILjRWMzMuNnoiIGZpbGw9IiMwMDgiLz48cGF0aCBjbGFzcz0ic3QyIiBkPSJNNTAuMiA1NC4zYy02LjggMC0xMi41IDUuNi0xMi41IDEyLjUgMCA2LjggNS42IDEyLjUgMTIuNCAxMi41IDcgMCAxMi42LTUuNSAxMi42LTEyLjRzLTUuNi0xMi42LTEyLjUtMTIuNnpNMzYuMiA2My45Yy0zLjUuOS03LjEgMS45LTEwLjYgMi45di4yYzMuNS45IDcuMSAxLjkgMTAuNiAyLjh2LTUuOXpNNTAuMyA0Mi4yaC0uMmMtLjkgMy41LTEuOSA3LjEtMi44IDEwLjZoNS45Yy0xLTMuNS0xLjktNy0yLjktMTAuNnpNNjQuMiA2OS44YzMuNS0uOSA3LjEtMS45IDEwLjYtMi44di0uMmMtMy41LS45LTcuMS0xLjktMTAuNi0yLjh2NS44ek01MC4xIDkxLjRoLjJjLjktMy41IDEuOS03LjEgMi44LTEwLjZoLTUuOWMxIDMuNiAyIDcuMSAyLjkgMTAuNnpNMzYuNyA3MS41Yy0yLjUgMi41LTUuMSA1LjEtNy42IDcuNyAzLjUtLjkgNy0xLjkgMTAuNS0yLjgtMS4xLTEuNy0yLTMuNC0yLjktNC45ek02Mi42IDQ1LjdjLTIuNiAyLjYtNS4yIDUuMS03LjcgNy42IDEuNi45IDMuMiAxLjggNC45IDIuOC45LTMuNSAxLjgtNyAyLjgtMTAuNHpNMzkuNSA1Ny4zYy0zLjUtLjktNy0xLjktMTAuNy0yLjlsNy44IDcuOGMxLTEuNiAxLjktMy4yIDIuOS00Ljl6TTYwLjkgNzYuNGMzLjUuOSA3IDEuOSAxMC4zIDIuOC0yLjUtMi41LTUtNS4xLTcuNS03LjYtLjkgMS41LTEuOCAzLjEtMi44IDQuOHpNNDUuNiA1My4zYy0yLjUtMi41LTUuMS01LjEtNy44LTcuNyAxIDMuNiAxLjkgNy4xIDIuOCAxMC42IDEuOC0xLjEgMy40LTIgNS0yLjl6TTU0LjggODAuNGMyLjUgMi41IDUuMSA1IDcuNyA3LjctMS0zLjUtMS45LTcuMS0yLjgtMTAuNS0xLjcgMS0zLjMgMS45LTQuOSAyLjh6TTYzLjcgNjIuMWMyLjUtMi41IDUuMS01LjEgNy43LTcuNi0zLjUuOS03IDEuOS0xMC41IDIuOCAxIDEuNyAyIDMuNCAyLjggNC44ek0zNy45IDg4YzIuNi0yLjYgNS4yLTUuMSA3LjctNy42LTEuNi0uOS0zLjItMS44LTQuOS0yLjgtLjkgMy40LTEuOSA2LjktMi44IDEwLjR6Ii8+PC9zdmc+')
 const activeIndex = ref<string>('0')
 const handleSelect = (key: string, keyPath: string[]) => {
@@ -82,7 +87,6 @@ const handleSelect = (key: string, keyPath: string[]) => {
 <style lang="scss" scoped>
 // $bg: #1b1b1b;
 $bg: #fff;
-
 
 .header {
   width: 100vw;

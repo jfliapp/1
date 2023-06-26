@@ -100,9 +100,12 @@
     box-sizing: border-box;
 
     .footer-title-l {
+      padding-right: 8px;
+
       img {
         width: 16px;
         height: 12px;
+        vertical-align: middle;
       }
     }
 
