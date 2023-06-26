@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+li {
+  list-style: none
+}
+
+img {
+  vertical-align: top;
+  border: none
+}
+
+.fz-10 {
+  font-size: 10px;
+}
+
+.fz-14 {
+  font-size: 14px;
+}
+
+.fz-16 {
+  font-size: 16px;
+}
+
+.fz-17 {
+  font-size: 17px;
+}
+
+.fz-24 {
+  font-size: 24px;
+}
+
+.fz-30 {
+  font-size: 30px;
+}
+
+.text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 超出4line隐藏
+@mixin text-overflow-line($line: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $line;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
