@@ -1,3 +1,0 @@
-
-
-console.warn('permission.ts')
