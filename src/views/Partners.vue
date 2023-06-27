@@ -8,7 +8,8 @@
           <h5 class="tip">A secure, fair, and transparent trading environment</h5>
         </div>
         <div class="btn">
-          <el-button>开始交易</el-button>
+          <!-- <el-button>开始交易</el-button> -->
+          <el-button>{{ $t('AboutUs') }}</el-button>
           <el-button>开设账户</el-button>
         </div>
       </div>
@@ -71,7 +72,7 @@ const about = [
 $color: #707070;
 
 .home-1 {
-  height: 451px;
+  height: 320px;
   color: #fff;
   display: flex;
   align-items: center;
