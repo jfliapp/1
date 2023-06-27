@@ -18,7 +18,7 @@
   <section class="home-2">
     <div class="content">
       <el-tabs tab-position="left" class="content-tab" v-model="tabActive" @tab-change="tabChange">
-        <el-tab-pane label="公告" name="1">
+        <el-tab-pane label="公告" name="2">
           <div class="title">
             公告
           </div>
@@ -37,7 +37,7 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="行業新聞" name="2">
+        <el-tab-pane label="行業新聞" name="4">
           <div class="title">
             行業新聞
           </div>

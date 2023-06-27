@@ -78,8 +78,8 @@ const menu = [
     title: '新聞資訊',
     prefixPath: 'news',
     arr: [
-      { title: '公告', name: '1', prefixPath: 'news' },
-      { title: '行業新聞', name: '2', prefixPath: 'news' }
+      { title: '公告', name: '2', prefixPath: 'news' },
+      { title: '行業新聞', name: '4', prefixPath: 'news' }
     ]
   },
 ]
@@ -131,10 +131,10 @@ const handleSelect = (key: string, keyPath: string[]) => {
 const goUrl = (item: any) => {
   const name = item.name
   let tem: any = { name }
-  if (item.name === '1') {
+  if (item.name === '2') {
     tem = { name: 'News', params: { id: item.name } }
   }
-  if (item.name === '2') {
+  if (item.name === '4') {
     tem = { name: 'News', params: { id: item.name } }
   }
   push(tem)
