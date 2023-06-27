@@ -10,19 +10,29 @@ const router = createRouter({
       component: () => import('@/views/Home.vue')
     },
     {
-      path: '/aboutService',
-      name: 'AboutService',
-      component: () => import('@/views/AboutService.vue')
+      path: '/situation',
+      name: 'Situation',
+      component: () => import('@/views/Situation.vue')
     },
     {
-      path: '/aboutAptitude',
-      name: 'AboutAptitude',
-      component: () => import('@/views/AboutAptitude.vue')
+      path: '/qualification',
+      name: 'Qualification',
+      component: () => import('@/views/Qualification.vue')
     },
     {
-      path: '/about',
-      name: 'About',
-      component: () => import('@/views/About.vue')
+      path: '/foreignTrading',
+      name: 'ForeignTrading',
+      component: () => import('@/views/ForeignTrading.vue')
+    },
+    {
+      path: '/goodsTrading',
+      name: 'GoodsTrading',
+      component: () => import('@/views/GoodsTrading.vue')
+    },
+    {
+      path: '/partners',
+      name: 'Partners',
+      component: () => import('@/views/Partners.vue')
     }
   ]
 })

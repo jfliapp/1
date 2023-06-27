@@ -103,7 +103,7 @@ $color: #707070;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('../assets/img/about-service.png');
+  background: url('../assets/img/situation.png');
   background-repeat: no-repeat;
   background-size: 100%;
 }

@@ -15,20 +15,34 @@
     </div>
   </section>
   <section class="home-2">
-
     <div class="content">
-      <h2 class="title">合作伙伴</h2>
+      <div class="title fz-20">合作伙伴</div>
       <div class="about">
-        <div class="item" v-for="(item, idx) in 17" :key="idx">
-          <img src="https://demo.hlives.vip/static/img/h1.6d50377.jpg" />
+        <div class="item" v-for="(item, idx) in about" :key="idx">
+          <img :src="item.img" />
         </div>
       </div>
     </div>
   </section>
 </template>
 <script lang="ts" setup>
-import img from '@/assets/img/home-1.png'
-const abouts = [
+import img from '@/assets/img/partner-1.png'
+const about = [
+  {
+    img
+  },
+  {
+    img
+  },
+  {
+    img
+  },
+  {
+    img
+  },
+  {
+    img
+  },
   {
     img
   },
@@ -62,8 +76,9 @@ $color: #707070;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: 100% 100%;
-  background: url('../assets/img/home-1.png');
+  background: url('../assets/img/partners.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
 
   .title {
     display: flex;
@@ -87,33 +102,44 @@ $color: #707070;
 }
 
 .home-2 {
-  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   .title {
-    padding: 20px;
+    padding: 20px 0;
   }
 
   .content {
-    width: 1200px;
+    width: 1215px; //手动算出长度
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
     .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 225px);
-      grid-template-rows: 125px;
-      grid-gap: 10px 20px;
+      // display: grid;
+      // grid-template-columns: repeat(auto-fill, 225px);
+      // grid-template-rows: 125px;
+      // grid-gap: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+
 
       .item {
-        width: 225px;
-        height: 125px;
-        border: 1px solid #ccc;
+        width: 227px;
+        height: 127px;
         overflow: hidden;
+        padding-bottom: 20px;
+
+        &:not(:nth-child(5n)) {
+          padding-right: 20px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

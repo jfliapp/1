@@ -9,6 +9,7 @@ import AppContainer from '@/components/AppContainer/index.vue'
 </script>
 <style scoped>
 .container {
+  min-width: 1200px;
   width: 100vw;
   display: flex;
   flex-direction: column;
