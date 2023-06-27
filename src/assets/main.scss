@@ -137,14 +137,12 @@ img {
   -webkit-box-orient: vertical;
 }
 
-
-
-// 按钮
-// @mixin btn-sty($bg, $c) {
-//   width: 158px;
-//   height: 42px;
-//   border-radius: 4px;
-//   opacity: 0.5;
-//   border: 1px solid #FFFFFF;
-//   background: $bg;
-// }
+@mixin btn-sty($bc: #FFFFFF, $c: #FFFFFF, $bg: transparent) {
+  cursor: pointer;
+  padding: 8px 52px;
+  border-radius: 4px;
+  opacity: 0.5;
+  border: 1px solid $bc;
+  color: $c;
+  background: $bg;
+}

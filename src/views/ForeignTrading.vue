@@ -141,16 +141,6 @@ const questions = [
 <style lang="scss" scoped>
 $color: #707070;
 
-@mixin btn-sty($bc: #FFFFFF, $c: #FFFFFF, $bg: transparent) {
-  cursor: pointer;
-  padding: 8px 52px;
-  border-radius: 4px;
-  opacity: 0.5;
-  border: 1px solid $bc;
-  color: $c;
-  background: $bg;
-}
-
 .home1-btn-sty {
   @include btn-sty()
 }

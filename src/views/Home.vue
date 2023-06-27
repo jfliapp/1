@@ -7,9 +7,9 @@
           <h2>安全、公平、透明的交易环境</h2>
           <h5 class="tip">A secure, fair, and transparent trading environment</h5>
         </div>
-        <div class="btn">
-          <el-button>开始交易</el-button>
-          <el-button>开设账户</el-button>
+        <div class="btn flex">
+          <div class="home1-btn-sty flex-c-c mr-20">开始交易</div>
+          <div class="home1-btn-sty flex-c-c">开设账户</div>
         </div>
       </div>
     </div>
@@ -192,6 +192,10 @@ const home7 = [
 </script>
 <style lang="scss" scoped>
 $color: #707070;
+
+.home1-btn-sty {
+  @include btn-sty()
+}
 
 .home-1 {
   height: 451px;

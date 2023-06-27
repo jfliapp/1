@@ -9,8 +9,8 @@
         </div>
         <div class="btn">
           <!-- <el-button>开始交易</el-button> -->
-          <el-button>{{ $t('AboutUs') }}</el-button>
-          <el-button>开设账户</el-button>
+          <!-- <div class="home1-btn-sty flex-c-c mr-20">{{ $t('AboutUs') }}</div>
+          <div class="home1-btn-sty flex-c-c">开设账户</div> -->
         </div>
       </div>
     </div>
@@ -115,6 +115,10 @@ const tabChange = async (item: string) => {
 </script>
 <style lang="scss" scoped>
 $color: #707070;
+
+.home1-btn-sty {
+  @include btn-sty()
+}
 
 .home-1 {
   height: 320px;

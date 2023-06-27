@@ -1,17 +1,9 @@
 <template>
   <section class="home-1">
     <div class="title">
-      <h2>专业金融服务平台</h2>
-      <div class="home-bot">
-        <div class="sub-title">
-          <h2>安全、公平、透明的交易环境</h2>
-          <h5 class="tip">A secure, fair, and transparent trading environment</h5>
-        </div>
-        <div class="btn">
-          <!-- <el-button>开始交易</el-button> -->
-          <el-button>{{ $t('AboutUs') }}</el-button>
-          <el-button>开设账户</el-button>
-        </div>
+      <div class="fz-36 fw-600">为何选择Demo company？</div>
+      <div class="sub-title fz-24">
+        通过一家安全的以客户为中心的供应商进行外汇交易
       </div>
     </div>
   </section>
@@ -85,19 +77,8 @@ $color: #707070;
     display: flex;
     flex-direction: column;
 
-    .home-bot {
-      display: flex;
-      margin-top: 36px;
-
-      .sub-title {
-        .tip {
-          opacity: .5;
-        }
-      }
-
-      .btn {
-        margin-left: 188px;
-      }
+    .sub-title {
+      color: #E1E1E1;
     }
   }
 }
