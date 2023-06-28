@@ -64,8 +64,8 @@ const menu = reactive([
     itemActive: false,
     arr: [
       { liActive: false, title: '登錄交易', name: 'Login', prefixPath: 'platform' },
-      { liActive: false, title: '平臺介紹', name: 'tradingPlatform', prefixPath: 'platform' },
-      { liActive: false, title: '下載中心', name: 'download', prefixPath: 'platform' }
+      { liActive: false, title: '平臺介紹', name: 'TradingPlatform', prefixPath: 'platform' },
+      { liActive: false, title: '下載中心', name: 'Download', prefixPath: 'platform' }
     ]
   },
   {

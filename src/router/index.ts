@@ -40,6 +40,16 @@ const router = createRouter({
       component: () => import('@/views/LegalDocument.vue')
     },
     {
+      path: '/tradingPlatform',
+      name: 'TradingPlatform',
+      component: () => import('@/views/TradingPlatform.vue')
+    },
+    {
+      path: '/download',
+      name: 'Download',
+      component: () => import('@/views/Download.vue')
+    },
+    {
       path: '/news/:id',
       name: 'News',
       component: () => import('@/views/News.vue')
