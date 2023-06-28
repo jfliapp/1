@@ -5,7 +5,7 @@
       <div class="header-left">
         <el-menu-item @click="push('/')">
           <div class="logo"></div>
-          <div class="header-txt">Demo website Company</div>
+          <!-- <div class="header-txt">Demo website Company</div> -->
         </el-menu-item>
         <el-sub-menu v-for="(item, i) in  menu" :key="i" :index="item.prefixPath">
           <template #title>
@@ -19,10 +19,10 @@
 
       <div class="header-right">
         <el-menu-item>
-          <span>登录</span>
+          <span @click="goOtherUrl('sign-in')">登录</span>
         </el-menu-item>
         <el-menu-item>
-          <span>注册</span>
+          <span @click="goOtherUrl('sign-up')">注册</span>
         </el-menu-item>
         <el-sub-menu index="14">
           <template #title>
@@ -45,7 +45,7 @@
 import { useRouter } from "vue-router";
 import { ref, onMounted } from 'vue'
 import { useLangStore } from '@/stores'
-
+import { goOtherUrl } from "@/utils";
 const menu = [
   {
     title: '關於我們',
@@ -69,7 +69,7 @@ const menu = [
     title: '交易平臺',
     prefixPath: 'platform',
     arr: [
-      { title: '登錄交易', name: 'login', prefixPath: 'platform' },
+      { title: '登錄交易', name: 'Login', prefixPath: 'platform' },
       { title: '平臺介紹', name: 'tradingPlatform', prefixPath: 'platform' },
       { title: '下載中心', name: 'download', prefixPath: 'platform' }
     ]
@@ -137,6 +137,10 @@ const goUrl = (item: any) => {
   if (item.name === '4') {
     tem = { name: 'News', params: { id: item.name } }
   }
+  if (item.name === 'Login') {
+    goOtherUrl('sign-in')
+    return
+  }
   push(tem)
 }
 </script>
@@ -161,14 +165,15 @@ $bg: #fff;
       align-items: center;
 
       .logo {
-        width: 1em;
-        height: 1em;
+        width: 102px;
+        height: 24px;
         font-size: 28px;
         vertical-align: middle;
         background-repeat: no-repeat;
         background-position: 50%;
         background-size: contain;
-        background-image: url(https://securitiesuserdata.oss-ap-northeast-1.aliyuncs.com/initial/96.png);
+        // background-image: url(https://securitiesuserdata.oss-ap-northeast-1.aliyuncs.com/initial/96.png);
+        background-image: url('../../assets/img/logo.png');
       }
 
       .header-txt {

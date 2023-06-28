@@ -6,8 +6,8 @@
         <div class="sub-title fz-24 fw-500">可交易贵金属、原油、铜等大宗商品</div>
       </div>
       <div class="home-btn flex">
-        <div class="home1-btn-sty flex-c-c mr-20">开始交易</div>
-        <div class="home1-btn-sty flex-c-c">开设账户</div>
+        <div class="home1-btn-sty flex-c-c mr-20" @click="goOtherUrl('sign-in')">开始交易</div>
+        <div class="home1-btn-sty flex-c-c" @click="goOtherUrl('sign-up')">开设账户</div>
       </div>
     </div>
   </section>
@@ -34,7 +34,7 @@
           <el-table-column prop="a4" align="center" />
         </el-table>
       </div>
-      <div class="home2-btn-sty flex-c-c m-20">了解更多</div>
+      <div class="home2-btn-sty flex-c-c m-20" @click="goOtherUrl('差價合約交易規則.pdf')">了解更多</div>
     </div>
   </section>
   <section class="home-3">
@@ -69,8 +69,8 @@
         </div>
       </div>
       <div class="btn">
-        <div class="home3-btn1-sty">开始交易</div>
-        <div class="home3-btn2-sty ml-30">开设账户</div>
+        <div class="home3-btn1-sty" @click="goOtherUrl('sign-in')">开始交易</div>
+        <div class="home3-btn2-sty ml-30" @click="goOtherUrl('sign-up')">开设账户</div>
       </div>
     </div>
   </section>
@@ -89,6 +89,7 @@
 </template>
 <script lang="ts" setup>
 import img from '@/assets/img/home-1.png'
+import { goOtherUrl } from '@/utils';
 const trades = [
   {
     title: '公正的交易环境',

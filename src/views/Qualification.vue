@@ -8,7 +8,12 @@
   <section class="home-2">
     <div class="content">
       <div class="text-center fz-20 fw-500"> 持牌编号: DEMOID </div>
-      <div class="sub-title fz-16">查询链接： https://apps.sfc.hk/publicregWeb/searchByName?locale=zh</div>
+      <div class="sub-title fz-16">
+        查询链接：
+        <a href="https://apps.sfc.hk/publicregWeb/searchByName?locale=zh">
+          https://apps.sfc.hk/publicregWeb/searchByName?locale=zh
+        </a>
+      </div>
     </div>
     <div>
       <img src="../assets/img/about-aptitude-1.png" />

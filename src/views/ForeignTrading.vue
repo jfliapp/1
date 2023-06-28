@@ -6,8 +6,8 @@
         <div class="sub-title fz-24 fw-500">可融资买入交易全部台股</div>
       </div>
       <div class="home-btn flex">
-        <div class="home1-btn-sty flex-c-c mr-20">开始交易</div>
-        <div class="home1-btn-sty flex-c-c">开设账户</div>
+        <div class="home1-btn-sty flex-c-c mr-20" @click="goOtherUrl('sign-in')">开始交易</div>
+        <div class="home1-btn-sty flex-c-c" @click="goOtherUrl('sign-up')">开设账户</div>
       </div>
     </div>
   </section>
@@ -23,18 +23,42 @@
         </div>
       </div>
     </div>
-    <div class="home-2-content">
-      <div class="title fz-20 fw-500">极具竞争力的商品合约定价</div>
-      <div class="table">
-        <el-table :data="tableData" stripe :show-header="false">
-          <el-table-column prop="name" align="center" />
-          <el-table-column prop="a1" align="center" />
-          <el-table-column prop="a2" align="center" />
-          <el-table-column prop="a3" align="center" />
-          <el-table-column prop="a4" align="center" />
-        </el-table>
+    <div class="home2-content">
+      <div class="home-3-img">
+        <img src="../assets/img/home-3.png" />
       </div>
-      <div class="home2-btn-sty flex-c-c m-20">了解更多</div>
+      <div class="content">
+        <div>
+          <div class="fz-22"> 强大稳定的交易平台 </div>
+          <div class="desc-content">
+            <div class="item">
+              <div class="title-top flex f-ai-c">
+                <img src="../assets/img/trade-icon.png" />
+                <div class="fz-18 fw-500 pl-14">衍生品交易首选平台</div>
+              </div>
+              <div class="sub-title">股票及衍生品交易首选平台</div>
+            </div>
+            <div class="item">
+              <div class="title-top flex f-ai-c">
+                <img src="../assets/img/trade-icon.png" />
+                <div class="fz-18 fw-500 pl-14">丰富的交易品种</div>
+              </div>
+              <div class="sub-title">使用同一个账户交易股票融资、商品合约等多类产品</div>
+            </div>
+            <div class="item">
+              <div class="title-top flex f-ai-c">
+                <img src="../assets/img/trade-icon.png" />
+                <div class="fz-18 fw-500 pl-14">多种工具和功能</div>
+              </div>
+              <div class="sub-title">各类分析指标助力您的交易</div>
+            </div>
+          </div>
+        </div>
+        <div class="btn">
+          <div class="home3-btn1-sty" @click="goOtherUrl('sign-in')">开始交易</div>
+          <div class="home3-btn2-sty ml-30" @click="goOtherUrl('sign-up')">开设账户</div>
+        </div>
+      </div>
     </div>
   </section>
   <section class="home-4">
@@ -52,6 +76,7 @@
 </template>
 <script lang="ts" setup>
 import img from '@/assets/img/home-1.png'
+import { goOtherUrl } from '@/utils';
 const trades = [
   {
     title: '公正的交易环境',
@@ -149,6 +174,14 @@ $color: #707070;
   @include btn-sty(#E4E4E4, $color)
 }
 
+.home3-btn1-sty {
+  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF)
+}
+
+.home3-btn2-sty {
+  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D)
+}
+
 .home-1 {
   height: 400px;
   color: #fff;
@@ -211,19 +244,55 @@ $color: #707070;
     }
   }
 
-  .home-2-content {
+  .home2-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 240px;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 280px;
 
-    .title {
-      padding: 20px 0;
-      color: #333333;
+    .home-3-img {
+      padding-top: 45px;
+
+      img {
+        width: 479px;
+        height: 324px;
+      }
     }
 
-    .table {
-      width: 1100px;
+    .content {
+      display: flex;
+      flex-direction: column;
+      padding-left: 74px;
+
+      .desc-content {
+        .item {
+          padding-top: 28px;
+          display: flex;
+          flex-direction: column;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+
+          .title-top {
+            display: flex;
+            align-items: center;
+
+          }
+
+          .sub-title {
+            color: $color;
+            padding-left: 34px;
+          }
+        }
+      }
+
+      .btn {
+        margin-top: 28px;
+        display: flex;
+        padding-left: 34px;
+      }
     }
   }
 }

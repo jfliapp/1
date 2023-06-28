@@ -1,17 +1,13 @@
 <template>
   <section class="home-1">
-    <div class="title">
-      <h2>专业金融服务平台</h2>
-      <div class="home-bot">
-        <div class="sub-title">
-          <h2>安全、公平、透明的交易环境</h2>
-          <h5 class="tip">A secure, fair, and transparent trading environment</h5>
-        </div>
-        <div class="btn">
-          <!-- <el-button>开始交易</el-button> -->
-          <!-- <div class="home1-btn-sty flex-c-c mr-20">{{ $t('AboutUs') }}</div>
-          <div class="home1-btn-sty flex-c-c">开设账户</div> -->
-        </div>
+    <div class="home-content">
+      <div class="home-title">
+        <div class="title fz-36 fw-500">Demo company最新财经资讯</div>
+        <div class="sub-title fz-24 fw-500">实时更新，第一手资讯，第一秒解读</div>
+      </div>
+      <div class="home-btn flex">
+        <div class="home3-btn-sty flex-c-c mr-20" @click="goOtherUrl('sign-in')">开始交易</div>
+        <div class="home3-btn-sty flex-c-c" @click="goOtherUrl('sign-up')">开设账户</div>
       </div>
     </div>
   </section>
@@ -65,9 +61,12 @@
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import { service } from "@/axios";
+import { goOtherUrl } from "@/utils";
+import { useLangStore } from "@/stores";
 const tabActive = ref('1')
 const newsList = ref()
 const route = useRoute()
+const langStore = useLangStore()
 tabActive.value = route.params.id as string
 onMounted(async () => {
   await getData(tabActive.value)
@@ -96,7 +95,7 @@ const getData = async (id: string) => {
     method: 'post',
     data: {
       noticetype: Number(id),
-      language: "zh-hk"
+      language: langStore.lang || 'zh-hk'
     }
   })
   if (res.data.error === 'OK') {
@@ -116,37 +115,33 @@ const tabChange = async (item: string) => {
 <style lang="scss" scoped>
 $color: #707070;
 
-.home1-btn-sty {
-  @include btn-sty()
+.home3-btn1-sty {
+  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF)
+}
+
+.home3-btn2-sty {
+  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D)
 }
 
 .home-1 {
-  height: 320px;
+  height: 400px;
   color: #fff;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background: url('../assets/img/partners.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background: url('../assets/img/foreignTrade.png');
+  background-size: 100% 100%;
 
-  .title {
-    display: flex;
-    flex-direction: column;
+  .home-content {
+    padding-left: 443px;
 
-    .home-bot {
+    .home-title {
       display: flex;
-      margin-top: 36px;
+      flex-direction: column;
+    }
 
-      .sub-title {
-        .tip {
-          opacity: .5;
-        }
-      }
-
-      .btn {
-        margin-left: 188px;
-      }
+    .home-btn {
+      padding-top: 40px;
     }
   }
 }

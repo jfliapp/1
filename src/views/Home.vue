@@ -8,8 +8,8 @@
           <h5 class="tip">A secure, fair, and transparent trading environment</h5>
         </div>
         <div class="btn flex">
-          <div class="home1-btn-sty flex-c-c mr-20">开始交易</div>
-          <div class="home1-btn-sty flex-c-c">开设账户</div>
+          <div class="home1-btn-sty flex-c-c mr-20" @click="goOtherUrl('sign-in')">开始交易</div>
+          <div class="home1-btn-sty flex-c-c" @click="goOtherUrl('sign-up')">开设账户</div>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="btn">
-        <el-button type="primary">了解更多</el-button>
+        <div class="home3-btn-sty" @click="push('foreignTrading')">了解更多</div>
       </div>
     </div>
   </section>
@@ -84,7 +84,7 @@
   <section class="home-6">
     <div class="fz-30">携手Initial Capital 开始交易</div>
     <div class="btn">
-      <el-button type="primary">开设账户</el-button>
+      <div class="home3-btn-sty" @click="goOtherUrl('sign-up')">开设账户</div>
     </div>
     <div class="trade">
       <div class="item" v-for="(item, idx) in home6" :key="idx">
@@ -114,6 +114,8 @@
 </template>
 <script setup lang="ts">
 import img from '@/assets/img/home-1.png'
+import { useRouter } from "vue-router";
+import { goOtherUrl } from '@/utils';
 const home2 = [
   {
     title: '灵活交易',
@@ -189,12 +191,18 @@ const home7 = [
     subTitle: '经阿里巴巴控股集团董事会同意，张勇将于今年9月10日卸任阿里巴巴控股集团董事会主席兼CEO职务…',
   }
 ]
+const { push } = useRouter()
 </script>
 <style lang="scss" scoped>
 $color: #707070;
 
 .home1-btn-sty {
   @include btn-sty()
+}
+
+.home3-btn-sty {
+  width: 180px;
+  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF)
 }
 
 .home-1 {
