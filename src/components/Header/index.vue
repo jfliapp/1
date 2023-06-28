@@ -177,6 +177,7 @@ $bg: #fff;
         height: 24px;
         cursor: pointer;
         font-size: 28px;
+        margin-right: 40px;
         vertical-align: middle;
         background-repeat: no-repeat;
         background-position: 50%;
