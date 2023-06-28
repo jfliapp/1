@@ -53,7 +53,7 @@ const menu = [
     arr: [
       { title: '合作夥伴', name: 'Partners', prefixPath: 'about' },
       { title: '公司概况', name: 'Situation', prefixPath: 'about' },
-      { title: '法律檔', name: 'legalDocument', prefixPath: 'about' },
+      { title: '法律檔', name: 'LegalDocument', prefixPath: 'about' },
       { title: '資質', name: 'Qualification', prefixPath: 'about' }
     ]
   },
