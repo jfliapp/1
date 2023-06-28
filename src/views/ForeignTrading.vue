@@ -175,11 +175,11 @@ $color: #707070;
 }
 
 .home3-btn1-sty {
-  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF)
+  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF, 1)
 }
 
 .home3-btn2-sty {
-  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D)
+  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D, 1)
 }
 
 .home-1 {

@@ -6,64 +6,52 @@
         <div class="sub-title fz-24 fw-500">实时更新，第一手资讯，第一秒解读</div>
       </div>
       <div class="home-btn flex">
-        <div class="home3-btn-sty flex-c-c mr-20" @click="goOtherUrl('sign-in')">开始交易</div>
-        <div class="home3-btn-sty flex-c-c" @click="goOtherUrl('sign-up')">开设账户</div>
+        <div class="home3-btn1-sty flex-c-c mr-20" @click="goOtherUrl('sign-in')">开始交易</div>
+        <div class="home3-btn2-sty flex-c-c" @click="goOtherUrl('sign-up')">开设账户</div>
       </div>
     </div>
   </section>
   <section class="home-2">
     <div class="content">
-      <el-tabs tab-position="left" class="content-tab" v-model="tabActive" @tab-change="tabChange">
-        <el-tab-pane label="公告" name="2">
-          <div class="title">
-            公告
-          </div>
-          <div class="tab-list">
-            <div class="item flex" v-for="item in newsList" :key="item.id">
-              <div class="item-left">
-                <img :src="item.CoverImgUrl">
+      <div class="l">
+        <div v-for="(item, idx) in newsTitle" :key="idx" class="item" :class="{ 'isActive': item.id === tabActive }"
+          @click="handle(item.id)">
+          {{ item.title }}
+        </div>
+      </div>
+      <div class="r">
+        <div class="title">
+          {{ name }}
+        </div>
+        <div class="tab-list">
+          <div class="item flex" v-for="item in newsList" :key="item.id">
+            <div class="item-left">
+              <img :src="item.CoverImgUrl">
+            </div>
+            <div class="item-right">
+              <div class="t">
+                <div class="fz-20 fw-500">{{ item.Caption }}</div>
+                <div v-html="item.Content"></div>
               </div>
-              <div class="item-right">
-                <div class="t">
-                  <div class="fz-20 fw-500">{{ item.Caption }}</div>
-                  <div v-html="item.Content"></div>
-                </div>
-                <div class="b">{{ item.createdAtTxt }}</div>
-              </div>
+              <div class="b">{{ item.createdAtTxt }}</div>
             </div>
           </div>
-        </el-tab-pane>
-        <el-tab-pane label="行業新聞" name="4">
-          <div class="title">
-            行業新聞
-          </div>
-          <div class="tab-list">
-            <div class="item flex" v-for="item in newsList" :key="item.id">
-              <div class="item-left">
-                <img :src="item.CoverImgUrl">
-              </div>
-              <div class="item-right">
-                <div class="t">
-                  <div class="fz-20 fw-500">{{ item.Caption }}</div>
-                  <div v-html="item.Content"></div>
-                </div>
-                <div class="b">{{ item.createdAtTxt }}</div>
-              </div>
-            </div>
-          </div>
-
-        </el-tab-pane>
-      </el-tabs>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import { useRoute } from "vue-router";
 import { service } from "@/axios";
 import { goOtherUrl } from "@/utils";
 import { useLangStore } from "@/stores";
-const tabActive = ref('1')
+const newsTitle = [
+  { id: '2', title: '公告' },
+  { id: '4', title: '行業新聞' }
+]
+const tabActive = ref('2')
 const newsList = ref()
 const route = useRoute()
 const langStore = useLangStore()
@@ -76,6 +64,7 @@ watch(() => route.params, (n) => {
 }, {
   immediate: true
 })
+const name = computed(() => newsTitle.find(item => item.id === tabActive.value)!.title)
 function pad(timeEl: number, total = 2, str = '0') {
   return timeEl.toString().padStart(total, str)
 }
@@ -108,19 +97,26 @@ const getData = async (id: string) => {
   }
   console.log(res, 'res--------res')
 }
-const tabChange = async (item: string) => {
-  await getData(item)
+
+const handle = (idx: string) => {
+  tabActive.value = idx
+  getData(idx)
 }
 </script>
 <style lang="scss" scoped>
 $color: #707070;
 
+.isActive {
+  background: #4393ef;
+  color: #FFFFFF;
+}
+
 .home3-btn1-sty {
-  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF)
+  @include btn-sty(transparent, #FFFFFF, #009BFF, 1)
 }
 
 .home3-btn2-sty {
-  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D)
+  @include btn-sty(transparent, #FFFFFF, #57D55D, 1)
 }
 
 .home-1 {
@@ -153,11 +149,31 @@ $color: #707070;
 
   .content {
     width: 1100px;
-    min-height: 600px;
+    min-height: 620px;
     padding: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
 
-    .content-tab {
-      height: 600px;
+    .l {
+      width: 160px;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+
+      .item {
+        padding: 10px 0 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        box-sizing: border-box;
+      }
+    }
+
+    .r {
+      width: 890px;
+      box-sizing: border-box;
+      margin-left: 40px;
+      border-left: 1px solid #ebebeb;
 
       .title {
         margin-left: 30px;
@@ -197,8 +213,8 @@ $color: #707070;
           }
         }
       }
-    }
 
+    }
   }
 }
 </style>

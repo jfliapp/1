@@ -26,13 +26,13 @@
     <div class="home-2-content">
       <div class="title fz-20 fw-500">极具竞争力的商品合约定价</div>
       <div class="table">
-        <el-table :data="tableData" stripe :show-header="false">
-          <el-table-column prop="name" align="center" />
-          <el-table-column prop="a1" align="center" />
-          <el-table-column prop="a2" align="center" />
-          <el-table-column prop="a3" align="center" />
-          <el-table-column prop="a4" align="center" />
-        </el-table>
+        <div v-for="(item, idx) in tableData" :key="idx" class="item" :class="{ 'active-line': idx % 2 === 0 }">
+          <div class="li">{{ item.name }}</div>
+          <div class="li">{{ item.a1 }}</div>
+          <div class="li">{{ item.a2 }}</div>
+          <div class="li">{{ item.a3 }}</div>
+          <div class="li">{{ item.a4 }}</div>
+        </div>
       </div>
       <div class="home2-btn-sty flex-c-c m-20" @click="goOtherUrl('差價合約交易規則.pdf')">了解更多</div>
     </div>
@@ -179,16 +179,6 @@ const questions = [
 <style lang="scss" scoped>
 $color: #707070;
 
-@mixin btn-sty($bc: #FFFFFF, $c: #FFFFFF, $bg: transparent) {
-  cursor: pointer;
-  padding: 8px 52px;
-  border-radius: 4px;
-  opacity: 0.5;
-  border: 1px solid $bc;
-  color: $c;
-  background: $bg;
-}
-
 .home1-btn-sty {
   @include btn-sty()
 }
@@ -198,11 +188,11 @@ $color: #707070;
 }
 
 .home3-btn1-sty {
-  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF)
+  @include btn-sty(#FFFFFF, #FFFFFF, #009BFF, 1)
 }
 
 .home3-btn2-sty {
-  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D)
+  @include btn-sty(#FFFFFF, #FFFFFF, #57D55D, 1)
 }
 
 .home-1 {
@@ -280,6 +270,24 @@ $color: #707070;
 
     .table {
       width: 1100px;
+
+      .item {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 48px;
+
+        .li {
+          width: 200px;
+          text-align: center;
+        }
+      }
+
+      .active-line {
+        background: #F7F8F8;
+      }
     }
   }
 }

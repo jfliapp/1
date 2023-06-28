@@ -8,7 +8,6 @@
       <div>世界一流的服务</div>
     </div>
     <div class="divider">
-      <el-divider />
     </div>
   </section>
   <section class="home-3">
@@ -121,6 +120,8 @@ $color: #707070;
 
   .divider {
     width: 814px;
+    height: 1px;
+    background: #EBEBEB;
   }
 
   .content {
