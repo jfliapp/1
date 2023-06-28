@@ -2,7 +2,7 @@
   <header class="header">
     <div class="content">
       <div class="left">
-        <div class="logo"></div>
+        <div class="logo" @click="push('/')"></div>
         <div class="left-menu">
           <div class="item" @click="menuHn(item, null)" v-for="(item, idx) in menu" :key="idx">
             <div class="label">{{ item.title }}</div>
@@ -175,6 +175,7 @@ $bg: #fff;
       .logo {
         width: 102px;
         height: 24px;
+        cursor: pointer;
         font-size: 28px;
         vertical-align: middle;
         background-repeat: no-repeat;
